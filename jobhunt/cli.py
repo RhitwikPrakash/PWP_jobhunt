@@ -189,7 +189,10 @@ def cmd_run(args) -> int:
     else:
         print("  --send not passed, email skipped")
 
-    store.record(jobs, emailed=sent)
+    if args.no_record:
+        print("  --no-record passed, dedupe store unchanged")
+    else:
+        store.record(jobs, emailed=sent)
     csv_path = store.export_csv(cfg.get("tracker_csv", "out/tracker.csv"))
 
     print(f"\nfunnel: {scanned} scanned -> {passed_filters} passed filters "
@@ -235,6 +238,8 @@ def main(argv=None) -> int:
                          "alias for 'llm', kept for older docs)")
     sr.add_argument("--no-draft", action="store_true", help="skip the expensive stage")
     sr.add_argument("--send", action="store_true", help="actually email the digest")
+    sr.add_argument("--no-record", action="store_true",
+                    help="leave the dedupe store unchanged (for CI dry runs)")
     sr.add_argument("--limit", type=int, help="cap jobs sent to the LLM (cost guard)")
     sr.set_defaults(func=cmd_run)
 

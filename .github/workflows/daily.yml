@@ -38,9 +38,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: seen.json
-          key: jobhunt-seen-${{ github.run_id }}
+          key: jobhunt-seen-v2-${{ github.run_id }}
           restore-keys: |
-            jobhunt-seen-
+            jobhunt-seen-v2-
 
       - uses: actions/setup-python@v5
         with:
@@ -82,7 +82,7 @@ jobs:
           MAIL_TO: ${{ secrets.MAIL_TO }}
         run: |
           if [ "${{ inputs.dry_run }}" = "true" ]; then
-            python -m jobhunt run
+            python -m jobhunt run --no-record
           else
             python -m jobhunt run --send
           fi
