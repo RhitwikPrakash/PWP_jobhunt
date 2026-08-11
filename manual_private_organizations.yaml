@@ -1,0 +1,7 @@
+# Private-company portals that are not supported by the Greenhouse/Lever/Ashby
+# fetcher and therefore require manual monitoring.
+
+manual_private_organizations:
+  - name: Tata Consultancy Services (TCS)
+    careers: https://www.tcs.com/careers/india
+    portal: TCS iBegin / TCS NextStep

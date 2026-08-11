@@ -94,7 +94,8 @@ def parse_lever(slug: str, company: str, body: Any) -> list[Job]:
             url=j.get("hostedUrl") or j.get("applyUrl") or "",
             description="\n\n".join(c for c in chunks if c).strip(),
             posted_at=posted,
-            salary=cats.get("commitment"),
+            # Lever's commitment is employment type, not compensation.
+            salary=None,
         ))
     return out
 

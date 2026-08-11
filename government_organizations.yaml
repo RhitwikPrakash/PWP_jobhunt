@@ -1,0 +1,13 @@
+# Separate manual watchlist. The jobhunt fetcher only supports Greenhouse,
+# Lever, and Ashby boards, so these organizations are not placed in companies.yaml.
+
+government_organizations:
+  - DRDO
+  - UIDAI
+  - MeitY Digital India Internship Scheme
+  - BHASHINI
+  - NeGD
+  - MoSPI NIOS
+  - NIELIT WBL
+  - C-DOT
+  - ISRO

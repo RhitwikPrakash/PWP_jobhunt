@@ -78,6 +78,12 @@ def test_lever_createdAt_is_epoch_milliseconds():
     assert j.posted_at == two_days_ago.isoformat()
 
 
+def test_lever_commitment_is_not_mislabelled_as_salary():
+    jobs = parse_lever("quantstack", "QuantStack", mock.LEVER["quantstack"])
+    j = next(j for j in jobs if j.title == "Backend Engineer (Go)")
+    assert j.salary is None
+
+
 def test_ashby_skips_unlisted_drafts():
     jobs = parse_ashby("helioscale", "Helioscale", mock.ASHBY["helioscale"])
     assert all("unlisted" not in j.url for j in jobs)
@@ -110,6 +116,10 @@ def test_parsers_take_decoded_json_not_a_response():
 # -------------------------------------------------------------- prefilter ---
 
 @pytest.mark.parametrize("title", [
+    "Data Scientist",
+    "Data Science Intern",
+    "Machine Learning Engineer",
+    "AI/ML Intern",
     "Software Engineer II, Distributed Systems",
     "Software Development Engineer, Core Infra",
     "Backend Engineer (Go)",
@@ -136,7 +146,6 @@ def test_bare_sde_regex_does_not_match_the_spelled_out_title():
     "Engineering Manager, Platform",          # management track
     "Enterprise Account Executive",           # wrong function
     "Frontend Engineer, Design Systems",      # wrong discipline
-    "Data Scientist, Growth",                 # wrong discipline
 ])
 def test_junk_titles_are_rejected(title):
     inc, exc = FILTERS["include_titles"], FILTERS["exclude_titles"]
@@ -145,11 +154,12 @@ def test_junk_titles_are_rejected(title):
     assert excluded or not included, f"{title!r} would have survived"
 
 
-def test_full_mock_funnel_keeps_only_the_five_real_matches():
+def test_full_mock_funnel_keeps_the_six_matching_roles():
     kept = prefilter(fetch_all_mock(), FILTERS)
     titles = sorted(j.title for j in kept)
     assert titles == [
         "Backend Engineer (Go)",
+        "Data Scientist, Growth",
         "Site Reliability Engineer",
         "Software Development Engineer, Core Infra",
         "Software Engineer II, Distributed Systems",

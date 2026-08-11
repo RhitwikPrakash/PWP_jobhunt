@@ -42,6 +42,7 @@ def _section(label: str, body: str) -> str:
 def _card(j: Job) -> str:
     d = j.draft or {}
     meta = " · ".join(x for x in [j.company, j.location or "—", j.ats] if x)
+    compensation = j.salary or "Not published by employer"
 
     para = lambda t: (f'<p style="margin:8px 0 0 0;color:{TEXT};font-size:14px;'
                       f'line-height:1.6;">{html.escape(t)}</p>') if t else ""
@@ -61,6 +62,7 @@ def _card(j: Job) -> str:
     <div style="padding-left:12px;">{_badge(j.score)}</div>
   </div>
   <div style="color:{MUTED};font-size:13px;margin-top:5px;">{html.escape(meta)}</div>
+  <div style="color:{TEXT};font-size:13px;margin-top:5px;"><strong>Compensation:</strong> {html.escape(compensation)}</div>
   {para(j.reason or "")}
   {_section("Why it fits", para(d.get("fit_summary", "")))}
   {_section("Resume bullets for this role", _bullets(d.get("tailored_bullets", [])))}

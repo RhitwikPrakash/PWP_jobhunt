@@ -9,8 +9,8 @@
 #   https://jobs.lever.co/<slug>               -> ats: lever
 #   https://jobs.ashbyhq.com/<slug>            -> ats: ashby
 #
-# THESE ARE EXAMPLES — verify each one before you trust the output. Companies
-# migrate between ATS vendors and slugs go dead. Check a slug in your browser:
+# This shortlist was verified on 11 Aug 2026. Companies migrate between ATS
+# vendors and slugs go dead, so re-check a board if it repeatedly returns 0:
 #   https://boards-api.greenhouse.io/v1/boards/<slug>/jobs?content=true
 #   https://api.lever.co/v0/postings/<slug>?mode=json
 #   https://api.ashbyhq.com/posting-api/job-board/<slug>?includeCompensation=true
@@ -19,20 +19,87 @@
 # so one bad entry never takes down the run. Watch the per-board job counts on
 # stdout — a board reporting 0 jobs every day is a slug that needs fixing.
 #
-# Start with 10-15 companies you would actually join. A list of 200 is mostly
-# noise and makes the prefilter counts impossible to reason about.
+# This personal shortlist contains 80 companies selected for the current
+# internship and entry-level search.
 
 companies:
   - {ats: greenhouse, slug: stripe,      name: Stripe}
   - {ats: greenhouse, slug: databricks,  name: Databricks}
   - {ats: greenhouse, slug: cloudflare,  name: Cloudflare}
-  - {ats: greenhouse, slug: figma,       name: Figma}
-  - {ats: greenhouse, slug: dropbox,     name: Dropbox}
   - {ats: greenhouse, slug: coinbase,    name: Coinbase}
-  - {ats: greenhouse, slug: reddit,      name: Reddit}
-  - {ats: lever,      slug: voleon,      name: Voleon}
-
+  - {ats: greenhouse, slug: twilio,      name: Twilio}
+  - {ats: greenhouse, slug: mongodb,     name: MongoDB}
+  - {ats: greenhouse, slug: fivetran,    name: Fivetran}
+  - {ats: greenhouse, slug: rubrik,      name: Rubrik}
+  - {ats: greenhouse, slug: samsara,     name: Samsara}
+  - {ats: lever,      slug: meesho,      name: Meesho}
+  - {ats: ashby,      slug: sarvam,      name: Sarvam AI}
+  - {ats: ashby,      slug: elevenlabs,  name: ElevenLabs}
+  - {ats: ashby,      slug: supabase,    name: Supabase}
+  - {ats: ashby,      slug: posthog,     name: PostHog}
   - {ats: ashby,      slug: openai,      name: OpenAI}
-  - {ats: ashby,      slug: ramp,        name: Ramp}
-  - {ats: ashby,      slug: linear,      name: Linear}
-  - {ats: ashby,      slug: vanta,       name: Vanta}
+  - {ats: greenhouse, slug: clickhouse,  name: ClickHouse}
+  - {ats: greenhouse, slug: cockroachlabs, name: Cockroach Labs}
+  - {ats: greenhouse, slug: commvault,   name: Commvault}
+  - {ats: greenhouse, slug: datadog,     name: Datadog}
+  - {ats: greenhouse, slug: elastic,     name: Elastic}
+  - {ats: greenhouse, slug: gitlab,      name: GitLab}
+  - {ats: greenhouse, slug: hackerrank,  name: HackerRank}
+  - {ats: greenhouse, slug: harnessinc,  name: Harness}
+  - {ats: greenhouse, slug: neo4j,       name: Neo4j}
+  - {ats: greenhouse, slug: newrelic,    name: New Relic}
+  - {ats: greenhouse, slug: observeai,   name: Observe.AI}
+  - {ats: greenhouse, slug: okta,        name: Okta}
+  - {ats: greenhouse, slug: phonepe,     name: PhonePe}
+  - {ats: greenhouse, slug: postman,     name: Postman}
+  - {ats: greenhouse, slug: razorpaysoftwareprivatelimited, name: Razorpay}
+  - {ats: greenhouse, slug: smartbear,   name: SmartBear}
+  - {ats: greenhouse, slug: sumologic,   name: Sumo Logic}
+  - {ats: greenhouse, slug: zscaler,     name: Zscaler}
+  - {ats: lever,      slug: netomi,      name: Netomi}
+  - {ats: ashby,      slug: airwallex,   name: Airwallex}
+  - {ats: ashby,      slug: anyscale,    name: Anyscale}
+  - {ats: ashby,      slug: atlan,       name: Atlan}
+  - {ats: ashby,      slug: coderabbit,  name: CodeRabbit}
+  - {ats: ashby,      slug: ema,         name: Ema}
+  - {ats: ashby,      slug: handshake,   name: Handshake}
+  - {ats: ashby,      slug: nanonets,    name: Nanonets}
+  - {ats: ashby,      slug: netgear,     name: NETGEAR}
+  - {ats: ashby,      slug: nightfall-ai, name: Nightfall AI}
+  - {ats: ashby,      slug: notion,      name: Notion}
+  - {ats: ashby,      slug: Wisdom-AI,   name: Wisdom AI}
+  - {ats: greenhouse, slug: anthropic,   name: Anthropic}
+  - {ats: greenhouse, slug: affirm,      name: Affirm}
+  - {ats: greenhouse, slug: airbnb,      name: Airbnb}
+  - {ats: greenhouse, slug: asana,       name: Asana}
+  - {ats: greenhouse, slug: brex,        name: Brex}
+  - {ats: greenhouse, slug: figma,       name: Figma}
+  - {ats: greenhouse, slug: scaleai,     name: Scale AI}
+  - {ats: greenhouse, slug: carta,       name: Carta}
+  - {ats: greenhouse, slug: dropbox,     name: Dropbox}
+  - {ats: greenhouse, slug: duolingo,    name: Duolingo}
+  - {ats: greenhouse, slug: faire,       name: Faire}
+  - {ats: greenhouse, slug: gusto,       name: Gusto}
+  - {ats: greenhouse, slug: instacart,   name: Instacart}
+  - {ats: greenhouse, slug: lyft,        name: Lyft}
+  - {ats: greenhouse, slug: pinterest,   name: Pinterest}
+  - {ats: greenhouse, slug: robinhood,   name: Robinhood}
+  - {ats: greenhouse, slug: towerresearchcapital, name: Tower Research Capital}
+  - {ats: greenhouse, slug: waymo,       name: Waymo}
+  - {ats: greenhouse, slug: workato,     name: Workato}
+  - {ats: greenhouse, slug: nuro,        name: Nuro}
+  - {ats: greenhouse, slug: inmobi,      name: InMobi}
+  - {ats: greenhouse, slug: highradius,  name: HighRadius}
+  - {ats: greenhouse, slug: vercel,      name: Vercel}
+  - {ats: greenhouse, slug: gleanwork,   name: Glean}
+  - {ats: greenhouse, slug: cognite,     name: Cognite}
+  - {ats: greenhouse, slug: point72,     name: Point72}
+  - {ats: greenhouse, slug: zinnia,      name: Zinnia}
+  - {ats: greenhouse, slug: bswiftindia, name: bswift India}
+  - {ats: greenhouse, slug: coherehealth, name: Cohere Health}
+  - {ats: greenhouse, slug: crunchyroll, name: Crunchyroll}
+  - {ats: greenhouse, slug: truveta,     name: Truveta}
+  - {ats: greenhouse, slug: definitivehcindia, name: Definitive Healthcare India}
+  - {ats: greenhouse, slug: capco,       name: Capco}
+  - {ats: greenhouse, slug: sigmoid,     name: Sigmoid}
+  - {ats: greenhouse, slug: valtech,     name: Valtech}
